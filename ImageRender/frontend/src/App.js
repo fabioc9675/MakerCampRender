@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 
 function App() {
   
-  const [imagenURL, setImagenURL] = useState('http://localhost:3000/my_plot.png'); // Reemplaza con la URL de tu imagen inicial
+  const [imagenURL, setImagenURL] = useState('https://makercamp.onrender.com/my_plot.png'); // Reemplaza con la URL de tu imagen inicial
 
   useEffect(() => {
     const interval = setInterval(() => {
       // Cambia la URL de la imagen cada segundo
-      setImagenURL(`http://localhost:3000/my_plot.png?timestamp=${Date.now()}`); // Reemplaza con la nueva URL de la imagen
+      setImagenURL(`https://makercamp.onrender.com/my_plot.png?timestamp=${Date.now()}`); // Reemplaza con la nueva URL de la imagen
     }, 1000); // 1000 milisegundos = 1 segundo
 
     // Limpia el intervalo cuando el componente se desmonta

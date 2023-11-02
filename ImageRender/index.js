@@ -18,7 +18,7 @@ app.post('/subir-imagen', upload.single('imagen'), (req, res) => {
   console.log('Imagen recibida:', req.file);
   // Procesa la imagen si es necesario
 
-  const imagenURL = `http://localhost:3000/${req.file.filename}`; // Cambia la URL según tu configuración
+  const imagenURL = `https://makercamp.onrender.com/${req.file.filename}`; // Cambia la URL según tu configuración
   res.send({ imagenURL });
 });
 
@@ -33,5 +33,5 @@ app.get('/', (req, res) => {
 app.use(express.static('uploads')); // 'uploads' es el directorio donde se guardan las imágenes
 
 app.listen(3000, () => {
-  console.log('Servidor escuchando en http://localhost:3000');
+  console.log('Servidor escuchando en https://makercamp.onrender.com');
 });
