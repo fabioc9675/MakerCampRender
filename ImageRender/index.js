@@ -1,5 +1,6 @@
 const express = require('express');
 const multer = require('multer'); // Para manejar archivos enviados
+const path = require('path');
 const app = express();
 
 const storage = multer.diskStorage({
@@ -19,6 +20,14 @@ app.post('/subir-imagen', upload.single('imagen'), (req, res) => {
 
   const imagenURL = `http://localhost:3000/${req.file.filename}`; // Cambia la URL según tu configuración
   res.send({ imagenURL });
+});
+
+// Configura el servidor para servir archivos estáticos desde la carpeta 'build'
+app.use(express.static(path.join(__dirname, 'frontend/build')));
+
+// Ruta de inicio
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
 });
 
 app.use(express.static('uploads')); // 'uploads' es el directorio donde se guardan las imágenes
